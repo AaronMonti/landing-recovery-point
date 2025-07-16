@@ -1,4 +1,5 @@
-import { ChevronRight, Search, CheckCircle, Star, Calendar, Target, Sparkles } from 'lucide-react';
+import { ChevronRight, Search, CheckCircle, Star, Calendar } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Hero() {
   const stats = [
@@ -92,10 +93,11 @@ export default function Hero() {
         {/* Columna derecha - Imagen */}
         <div className="relative animate-fadeInUp" style={{ animationDelay: '0.3s' }}>
           <div className="relative w-full h-[500px] rounded-3xl overflow-hidden shadow-2xl group">
-            <img
+            <Image
               src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1350&q=80"
               alt="Terapia física profesional en Recovery Point"
-              className="w-full h-full object-cover transition-transform duration-700 sm:group-hover:scale-105"
+              fill
+              className="object-cover transition-transform duration-700 sm:group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
             

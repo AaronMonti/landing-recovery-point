@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { Star, Users, Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useState, useEffect, useCallback } from 'react';
+import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function Testimonial() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -54,9 +54,9 @@ export default function Testimonial() {
     }
   ];
 
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) % testimonials.length);
-  };
+  }, [testimonials.length]);
 
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + testimonials.length) % testimonials.length);
@@ -73,7 +73,7 @@ export default function Testimonial() {
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [currentSlide]);
+  }, [nextSlide]);
 
   return (
     <section className="relative bg-gradient-to-br from-[#f7f7f7] via-[#e8f4f8] to-[#d1e9f2] py-12 sm:py-16 lg:py-20 overflow-hidden">
@@ -121,7 +121,7 @@ export default function Testimonial() {
                 className="flex transition-transform duration-500 ease-in-out"
                 style={{ transform: `translateX(-${currentSlide * 100}%)` }}
               >
-                {testimonials.map((testimonial, index) => (
+                {testimonials.map((testimonial) => (
                   <div key={testimonial.id} className="w-full flex-shrink-0 p-6 sm:p-8">
                     <div className="flex items-start gap-4 sm:gap-6">
                       <div className={`w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r ${testimonial.gradient} rounded-full flex items-center justify-center shadow-lg flex-shrink-0`}>
@@ -134,7 +134,7 @@ export default function Testimonial() {
                           ))}
                         </div>
                         <p className="text-sm sm:text-base text-[#273851]/80 leading-relaxed mb-4 sm:mb-6 italic">
-                          "{testimonial.content}"
+                          &ldquo;{testimonial.content}&rdquo;
                         </p>
                         <div className="flex items-center justify-between">
                           <div>
@@ -173,12 +173,12 @@ export default function Testimonial() {
 
             {/* Indicadores */}
             <div className="flex justify-center mt-6 sm:mt-8 gap-2">
-              {testimonials.map((_, index) => (
+              {testimonials.map((_, i) => (
                 <button
-                  key={index}
-                  onClick={() => goToSlide(index)}
+                  key={i}
+                  onClick={() => goToSlide(i)}
                   className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
-                    index === currentSlide 
+                    i === currentSlide 
                       ? 'bg-[#17B4BC] scale-125' 
                       : 'bg-[#18759F]/30 hover:bg-[#18759F]/50'
                   }`}

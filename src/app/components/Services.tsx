@@ -1,6 +1,7 @@
 'use client';
 
-import { CheckCircle, Users, Settings, Star, Shield, Sparkles } from 'lucide-react';
+import { CheckCircle, Users, Settings, Star, Shield } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Services() {
   const services = [
@@ -127,10 +128,11 @@ export default function Services() {
           {/* Columna derecha - Imagen */}
           <div className="relative order-1 lg:order-2">
             <div className="relative w-full h-64 sm:h-80 lg:h-[500px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl group">
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1350&q=80"
                 alt="Kinesiólogo realizando terapia manual"
-                className="w-full h-full object-cover transition-transform duration-700 sm:group-hover:scale-105"
+                fill
+                className="object-cover transition-transform duration-700 sm:group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
               

@@ -1,6 +1,6 @@
 'use client';
 
-import { Bone, Zap, Activity, Brain, ClipboardList, Search, Dumbbell, TrendingUp, Clock, FileText, Building2, Target, Calendar, Mail } from 'lucide-react';
+import { Bone, Zap, Activity, Brain, ClipboardList, Search, Dumbbell, TrendingUp, Clock, FileText, Target, Calendar, Mail } from 'lucide-react';
 
 export default function IssuesAndProcess() {
   const issues = [

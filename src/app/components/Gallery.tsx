@@ -1,13 +1,13 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { Camera, Calendar, Phone } from 'lucide-react';
+import { useEffect } from 'react';
+import Image from 'next/image';
 
 export default function Gallery() {
-  const [scrollY, setScrollY] = useState(0);
-
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
+    const handleScroll = () => {
+      // Función de scroll para futuras funcionalidades
+    };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -93,10 +93,11 @@ export default function Gallery() {
           {images.map((image, index) => (
             <div key={index} className="group relative overflow-hidden rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
               <div className="aspect-[4/3] relative overflow-hidden">
-                <img
+                <Image
                   src={image.src}
                   alt={image.alt}
-                  className="w-full h-full object-cover transition-transform duration-700 sm:group-hover:scale-110"
+                  fill
+                  className="object-cover transition-transform duration-700 sm:group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 sm:group-hover:opacity-100 transition-opacity duration-500" />
                 

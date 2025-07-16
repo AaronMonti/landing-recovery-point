@@ -1,6 +1,6 @@
 'use client';
 
-import { ChevronRight, Phone, CheckCircle, Target, Mail, Calendar, MapPin, Clock, Send, User, MessageSquare } from 'lucide-react';
+import { ChevronRight, Phone, CheckCircle, Mail, MapPin, Clock, Send, MessageSquare } from 'lucide-react';
 import { useState } from 'react';
 
 export default function Contact() {

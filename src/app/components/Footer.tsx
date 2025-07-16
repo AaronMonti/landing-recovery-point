@@ -1,23 +1,10 @@
 'use client';
 
 import { Activity, ArrowUp, Instagram, Mail, Phone, MapPin } from 'lucide-react';
-import { useState } from 'react';
 
 export default function Footer() {
-  const [email, setEmail] = useState('');
-
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const handleNewsletterSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) {
-      // Aquí puedes agregar la lógica para enviar el email
-      console.log('Email suscrito:', email);
-      setEmail('');
-      alert('¡Gracias por suscribirte a nuestro newsletter!');
-    }
   };
 
   return (
