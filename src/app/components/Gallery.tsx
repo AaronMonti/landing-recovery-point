@@ -7,22 +7,7 @@ export default function Gallery() {
 
   return (
     <section id="gallery" className="relative bg-gradient-to-br from-[#f7f7f7] via-[#e8f4f8] to-[#d1e9f2] py-12 sm:py-16 lg:py-20 overflow-hidden">
-      {/* Elementos decorativos estáticos - optimizados para móviles */}
-      <div className="absolute -top-32 -right-32 w-64 h-64 sm:w-96 sm:h-96 bg-[#17B4BC]/10 rounded-full blur-3xl" />
-      <div className="absolute -bottom-32 -left-32 w-64 h-64 sm:w-96 sm:h-96 bg-[#18759F]/10 rounded-full blur-3xl" />
-      <div className="absolute top-1/2 left-1/4 w-32 h-32 sm:w-64 sm:h-64 bg-[#273851]/10 rounded-full blur-2xl" />
       
-      {/* Partículas flotantes - solo en desktop */}
-      <div className="absolute inset-0 pointer-events-none hidden lg:block">
-        <div className="absolute w-2 h-2 bg-[#17B4BC]/20 rounded-full" style={{ left: '15%', top: '25%' }} />
-        <div className="absolute w-2 h-2 bg-[#17B4BC]/20 rounded-full" style={{ left: '80%', top: '35%' }} />
-        <div className="absolute w-2 h-2 bg-[#18759F]/20 rounded-full" style={{ left: '30%', top: '75%' }} />
-        <div className="absolute w-2 h-2 bg-[#18759F]/20 rounded-full" style={{ left: '75%', top: '20%' }} />
-        <div className="absolute w-2 h-2 bg-[#17B4BC]/20 rounded-full" style={{ left: '65%', top: '85%' }} />
-        <div className="absolute w-2 h-2 bg-[#273851]/20 rounded-full" style={{ left: '40%', top: '45%' }} />
-        <div className="absolute w-2 h-2 bg-[#17B4BC]/20 rounded-full" style={{ left: '20%', top: '65%' }} />
-        <div className="absolute w-2 h-2 bg-[#18759F]/20 rounded-full" style={{ left: '85%', top: '60%' }} />
-      </div>
 
       <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12 relative z-10">
         {/* Header de la sección */}

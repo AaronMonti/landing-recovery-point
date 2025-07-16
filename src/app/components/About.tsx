@@ -28,10 +28,7 @@ export default function About() {
 
   return (
     <section id="about" className="relative bg-white py-16 sm:py-20 lg:py-24">
-      {/* Elementos decorativos sutiles */}
-      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-[#f8fafc] to-transparent" />
-      <div className="absolute bottom-0 right-0 w-64 h-64 bg-[#17B4BC]/5 rounded-full blur-3xl" />
-      <div className="absolute top-1/3 left-0 w-32 h-32 bg-[#18759F]/5 rounded-full blur-2xl" />
+
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         {/* Header centrado */}

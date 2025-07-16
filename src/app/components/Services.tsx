@@ -32,22 +32,6 @@ export default function Services() {
 
   return (
     <section id="services" className="relative bg-gradient-to-br from-[#f7f7f7] via-[#e8f4f8] to-[#d1e9f2] py-12 sm:py-16 lg:py-20 overflow-hidden">
-      {/* Elementos decorativos animados */}
-      <div className="absolute -top-32 -right-32 w-64 h-64 sm:w-96 sm:h-96 bg-[#17B4BC]/20 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute -bottom-32 -left-32 w-64 h-64 sm:w-96 sm:h-96 bg-[#18759F]/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-      <div className="absolute top-1/2 left-1/4 w-32 h-32 sm:w-64 sm:h-64 bg-[#273851]/15 rounded-full blur-2xl animate-bounce" style={{ animationDuration: '3s' }} />
-      
-      {/* Partículas flotantes fijas - ocultas en mobile */}
-      <div className="absolute inset-0 pointer-events-none hidden sm:block">
-        <div className="absolute w-2 h-2 bg-[#17B4BC]/30 rounded-full animate-ping" style={{ left: '15%', top: '25%', animationDelay: '0s', animationDuration: '2s' }} />
-        <div className="absolute w-2 h-2 bg-[#17B4BC]/30 rounded-full animate-ping" style={{ left: '80%', top: '35%', animationDelay: '0.5s', animationDuration: '2.5s' }} />
-        <div className="absolute w-2 h-2 bg-[#18759F]/30 rounded-full animate-ping" style={{ left: '30%', top: '75%', animationDelay: '1s', animationDuration: '3s' }} />
-        <div className="absolute w-2 h-2 bg-[#18759F]/30 rounded-full animate-ping" style={{ left: '75%', top: '20%', animationDelay: '1.5s', animationDuration: '2.2s' }} />
-        <div className="absolute w-2 h-2 bg-[#17B4BC]/30 rounded-full animate-ping" style={{ left: '65%', top: '85%', animationDelay: '0.8s', animationDuration: '2.8s' }} />
-        <div className="absolute w-2 h-2 bg-[#273851]/30 rounded-full animate-ping" style={{ left: '40%', top: '45%', animationDelay: '1.2s', animationDuration: '2.4s' }} />
-        <div className="absolute w-2 h-2 bg-[#17B4BC]/30 rounded-full animate-ping" style={{ left: '20%', top: '65%', animationDelay: '0.3s', animationDuration: '2.6s' }} />
-        <div className="absolute w-2 h-2 bg-[#18759F]/30 rounded-full animate-ping" style={{ left: '85%', top: '60%', animationDelay: '1.8s', animationDuration: '2.1s' }} />
-      </div>
 
       <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12 relative z-10">
         {/* Header de la sección */}
@@ -57,7 +41,7 @@ export default function Services() {
           </span>
           <h2 className="text-wrap text-3xl sm:text-3xl lg:text-4xl xl:text-5xl font-extrabold text-[#273851] leading-tight mb-4 sm:mb-6 px-4">
             Servicios de Kinesiología{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#18759F] via-[#17B4BC] to-[#273851] animate-gradient">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#18759F] via-[#17B4BC] to-[#273851]">
               Especializados
             </span>
           </h2>
@@ -73,7 +57,7 @@ export default function Services() {
             <div className="space-y-4 sm:space-y-6">
               {services.map((service, index) => (
                 <div key={index} className="group cursor-pointer">
-                  <div className={`bg-gradient-to-r ${service.bgColor} rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-white/50 backdrop-blur-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 active:scale-95`}>
+                  <div className={`bg-gradient-to-r ${service.bgColor} rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-white/50 backdrop-blur-sm hover:shadow-lg transition-all duration-200 transform hover:-translate-y-1`}>
                     <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
                       <div className="flex items-center gap-3 sm:gap-4 flex-1">
                         <div className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r ${service.color} rounded-lg sm:rounded-xl flex items-center justify-center text-white shadow-lg flex-shrink-0`}>
@@ -88,7 +72,7 @@ export default function Services() {
                         <div className="text-center sm:text-right">
                           <div className="text-xs sm:text-sm text-[#273851]/60">{service.duration}</div>
                         </div>
-                        <button className="bg-white/80 backdrop-blur-md text-[#273851] px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium hover:bg-white transition-all duration-300 w-full sm:w-auto">
+                        <button className="bg-white/80 backdrop-blur-md text-[#273851] px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium hover:bg-white transition-colors duration-200 w-full sm:w-auto">
                           Reservar
                         </button>
                       </div>
@@ -117,7 +101,7 @@ export default function Services() {
               <div className="text-center">
                 <h3 className="text-base sm:text-lg font-semibold text-[#273851] mb-2">¿No encuentras lo que buscas?</h3>
                 <p className="text-sm sm:text-base text-[#273851]/70 mb-4">Contáctanos para una consulta personalizada</p>
-                <button className="bg-gradient-to-r from-[#18759F] to-[#17B4BC] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium hover:from-[#17B4BC] hover:to-[#18759F] transition-all duration-300 transform hover:-translate-y-1 shadow-lg w-full sm:w-auto">
+                <button className="bg-gradient-to-r from-[#18759F] to-[#17B4BC] text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium hover:from-[#17B4BC] hover:to-[#18759F] transition-all duration-200 transform hover:-translate-y-1 shadow-lg w-full sm:w-auto">
                   Contactanos
                 </button>
               </div>
@@ -131,7 +115,7 @@ export default function Services() {
               src={IMAGES.HERO}
               alt="Terapia física profesional en Recovery Point"
               fill
-              className="object-cover transition-transform duration-700 sm:group-hover:scale-105"
+              className="object-cover transition-transform duration-300 group-hover:scale-105"
               priority
             />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
@@ -177,7 +161,7 @@ export default function Services() {
             </div>
 
             {/* Sello de confianza mejorado - oculto en mobile */}
-            <div className="hidden lg:block absolute -bottom-8 -right-8 bg-white border border-[#e8f4f8] rounded-xl p-5 shadow-xl w-72 hover:shadow-2xl transition-shadow duration-300">
+            <div className="hidden lg:block absolute -bottom-8 -right-8 bg-white border border-[#e8f4f8] rounded-xl p-5 shadow-xl w-72 hover:shadow-2xl transition-shadow duration-200">
               <div className="flex items-center gap-4">
                 <div className="w-14 h-14 bg-gradient-to-r from-[#17B4BC] to-[#18759F] rounded-full flex items-center justify-center relative">
                   <CheckCircle className="w-7 h-7 text-white" />
@@ -197,10 +181,6 @@ export default function Services() {
                 </div>
               </div>
             </div>
-
-            {/* Elementos flotantes adicionales - ocultos en mobile */}
-            <div className="hidden lg:block absolute -top-4 -left-4 w-16 h-16 bg-[#17B4BC]/20 rounded-full blur-xl animate-pulse" />
-            <div className="hidden lg:block absolute -bottom-4 -right-4 w-12 h-12 bg-[#18759F]/20 rounded-full blur-lg animate-pulse" style={{ animationDelay: '0.5s' }} />
           </div>
         </div>
       </div>
