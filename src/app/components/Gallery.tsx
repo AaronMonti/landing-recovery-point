@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect } from 'react';
-import Image from 'next/image';
+import ImageWithFallback from './ImageWithFallback';
+import { IMAGES } from '../constants/images';
 
 export default function Gallery() {
   useEffect(() => {
@@ -12,44 +13,7 @@ export default function Gallery() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const images = [
-    {
-      src: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80",
-      alt: "Terapia física profesional",
-      title: "Terapia Manual",
-      description: "Técnicas especializadas para aliviar el dolor"
-    },
-    {
-      src: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=800&q=80",
-      alt: "Rehabilitación física",
-      title: "Rehabilitación",
-      description: "Programas personalizados de recuperación"
-    },
-    {
-      src: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=800&q=80",
-      alt: "Evaluación funcional",
-      title: "Evaluación",
-      description: "Análisis completo de tu condición"
-    },
-    {
-      src: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80",
-      alt: "Ejercicios terapéuticos",
-      title: "Ejercicios",
-      description: "Rutinas adaptadas a tus necesidades"
-    },
-    {
-      src: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80",
-      alt: "Tratamiento personalizado",
-      title: "Personalizado",
-      description: "Atención individualizada"
-    },
-    {
-      src: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=800&q=80",
-      alt: "Centro de kinesiología",
-      title: "Centro",
-      description: "Instalaciones modernas y equipadas"
-    }
-  ];
+  const images = IMAGES.GALLERY;
 
   return (
     <section id="gallery" className="relative bg-gradient-to-br from-[#f7f7f7] via-[#e8f4f8] to-[#d1e9f2] py-12 sm:py-16 lg:py-20 overflow-hidden">
@@ -93,7 +57,7 @@ export default function Gallery() {
           {images.map((image, index) => (
             <div key={index} className="group relative overflow-hidden rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
               <div className="aspect-[4/3] relative overflow-hidden">
-                <Image
+                <ImageWithFallback
                   src={image.src}
                   alt={image.alt}
                   fill
@@ -101,16 +65,12 @@ export default function Gallery() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 sm:group-hover:opacity-100 transition-opacity duration-500" />
                 
-                {/* Overlay con información - solo visible en hover en desktop */}
-                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 transform translate-y-full sm:group-hover:translate-y-0 transition-transform duration-500">
+                {/* Overlay con información - fijo en mobile, hover en desktop */}
+                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 transform sm:translate-y-full sm:group-hover:translate-y-0 transition-transform duration-500">
                   <div className="bg-white/95 backdrop-blur-sm rounded-lg sm:rounded-xl p-3 sm:p-4">
                     <h3 className="text-base sm:text-lg font-semibold text-[#273851] mb-1">{image.title}</h3>
                     <p className="text-sm text-[#273851]/70">{image.description}</p>
                     <div className="flex items-center justify-between mt-3">
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 bg-[#17B4BC] rounded-full"></div>
-                        <span className="text-xs text-[#273851]/60">Disponible</span>
-                      </div>
                       <button className="bg-gradient-to-r from-[#18759F] to-[#17B4BC] text-white px-3 py-1 rounded-lg text-xs font-medium hover:from-[#17B4BC] hover:to-[#18759F] transition-all duration-300">
                         Ver más
                       </button>

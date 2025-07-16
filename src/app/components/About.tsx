@@ -1,7 +1,8 @@
 'use client';
 
 import { Target, UserCheck, Building2, Handshake } from 'lucide-react';
-import Image from 'next/image';
+import ImageWithFallback from './ImageWithFallback';
+import { IMAGES } from '../constants/images';
 
 export default function About() {
   const features = [
@@ -58,8 +59,8 @@ export default function About() {
             <div className="relative">
               {/* Imagen principal */}
               <div className="relative w-full h-80 lg:h-96 rounded-2xl overflow-hidden shadow-lg">
-                <Image
-                  src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1350&q=80"
+                <ImageWithFallback
+                  src={IMAGES.ABOUT}
                   alt="Kinesiólogo profesional en Recovery Point"
                   fill
                   className="object-cover"
