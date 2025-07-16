@@ -2,7 +2,6 @@ import dynamic from 'next/dynamic';
 import Header from '@/app/components/Header';
 import Hero from '@/app/components/Hero';
 import About from '@/app/components/About';
-import LazySection from '@/app/components/LazySection';
 
 // Lazy load de componentes pesados
 const Services = dynamic(() => import('@/app/components/Services'), {
@@ -36,29 +35,17 @@ export default function Home() {
       <Hero />
       <About />
       
-      <LazySection>
-        <Services />
-      </LazySection>
+      <Services />
       
-      <LazySection>
-        <IssuesAndProcess />
-      </LazySection>
+      <IssuesAndProcess />
       
-      <LazySection>
-        <Gallery />
-      </LazySection>
+      <Gallery />
       
-      <LazySection>
-        <Testimonial />
-      </LazySection>
+      <Testimonial />
       
-      <LazySection>
-        <Contact />
-      </LazySection>
+      <Contact />
       
-      <LazySection>
-        <Footer />
-      </LazySection>
+      <Footer />
     </main>
   );
 }
