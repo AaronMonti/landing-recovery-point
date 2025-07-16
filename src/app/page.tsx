@@ -6,27 +6,27 @@ import LazySection from '@/app/components/LazySection';
 
 // Lazy load de componentes pesados
 const Services = dynamic(() => import('@/app/components/Services'), {
-  loading: () => <div className="min-h-[400px] bg-gray-50 animate-pulse" />
+  ssr: true
 });
 
 const IssuesAndProcess = dynamic(() => import('@/app/components/IssuesAndProcess'), {
-  loading: () => <div className="min-h-[400px] bg-gray-50 animate-pulse" />
+  ssr: true
 });
 
 const Gallery = dynamic(() => import('@/app/components/Gallery'), {
-  loading: () => <div className="min-h-[400px] bg-gray-50 animate-pulse" />
+  ssr: true
 });
 
 const Testimonial = dynamic(() => import('@/app/components/Testimonial'), {
-  loading: () => <div className="min-h-[400px] bg-gray-50 animate-pulse" />
+  ssr: true
 });
 
 const Contact = dynamic(() => import('@/app/components/CTA'), {
-  loading: () => <div className="min-h-[400px] bg-gray-50 animate-pulse" />
+  ssr: true
 });
 
 const Footer = dynamic(() => import('@/app/components/Footer'), {
-  loading: () => <div className="min-h-[200px] bg-gray-50 animate-pulse" />
+  ssr: true
 });
 
 export default function Home() {

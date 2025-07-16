@@ -1,10 +1,8 @@
 import Image from 'next/image';
-import { IMAGES } from '../constants/images';
 
 interface ImageWithFallbackProps {
   src: string;
   alt: string;
-  fallbackSrc?: string;
   fill?: boolean;
   className?: string;
   priority?: boolean;
@@ -15,7 +13,6 @@ interface ImageWithFallbackProps {
 export default function ImageWithFallback({
   src,
   alt,
-  fallbackSrc = IMAGES.FALLBACK,
   fill = false,
   className = "",
   priority = false,
