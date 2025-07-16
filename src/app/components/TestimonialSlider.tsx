@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface Testimonial {
@@ -25,16 +25,18 @@ export default function TestimonialSlider({ testimonials, autoPlayInterval = 500
     setCurrentSlide((prev) => (prev + 1) % testimonials.length);
   }, [testimonials.length]);
 
-  const prevSlide = () => {
+  const prevSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
+  }, [testimonials.length]);
 
-  const goToSlide = (index: number) => {
+  const goToSlide = useCallback((index: number) => {
     setCurrentSlide(index);
-  };
+  }, []);
 
-  // Auto-play
+  // Auto-play optimizado - solo en desktop
   useEffect(() => {
+    if (window.innerWidth < 768) return; // No auto-play en móviles
+    
     const interval = setInterval(() => {
       nextSlide();
     }, autoPlayInterval);
@@ -42,14 +44,19 @@ export default function TestimonialSlider({ testimonials, autoPlayInterval = 500
     return () => clearInterval(interval);
   }, [nextSlide, autoPlayInterval]);
 
+  // Memoizar el estilo de transformación
+  const transformStyle = useMemo(() => ({
+    transform: `translateX(-${currentSlide * 100}%)`
+  }), [currentSlide]);
+
   return (
     <div className="max-w-5xl mx-auto px-3 sm:px-4">
       <div className="relative">
-        {/* Contenedor del carousel - Mejorado para móviles */}
+        {/* Contenedor del carousel - Optimizado para móviles */}
         <div className="relative overflow-hidden rounded-xl sm:rounded-2xl bg-white/90 backdrop-blur-sm border border-white/50 shadow-xl">
           <div 
-            className="flex transition-transform duration-500 ease-in-out"
-            style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+            className="flex transition-transform duration-300 ease-out"
+            style={transformStyle}
           >
             {testimonials.map((testimonial) => (
               <div key={testimonial.id} className="w-full flex-shrink-0 p-4 sm:p-6 md:p-8 lg:p-10">
@@ -101,11 +108,11 @@ export default function TestimonialSlider({ testimonials, autoPlayInterval = 500
           </div>
         </div>
 
-        {/* Controles de navegación - Mejorados para móviles */}
+        {/* Controles de navegación - Optimizados para móviles */}
         <div className="flex items-center justify-between mt-4 sm:mt-6">
           <button
             onClick={prevSlide}
-            className="group w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 active:scale-95 border border-gray-100"
+            className="group w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center shadow-lg transition-all duration-200 transform active:scale-95 border border-gray-100"
             aria-label="Testimonio anterior"
           >
             <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 text-[#18759F] group-hover:text-[#17B4BC] transition-colors" />
@@ -116,9 +123,9 @@ export default function TestimonialSlider({ testimonials, autoPlayInterval = 500
               <button
                 key={i}
                 onClick={() => goToSlide(i)}
-                className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
+                className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-200 ${
                   i === currentSlide 
-                    ? 'bg-[#17B4BC] scale-125' 
+                    ? 'bg-[#17B4BC] scale-110' 
                     : 'bg-[#18759F]/30 hover:bg-[#18759F]/50'
                 }`}
                 aria-label={`Ir al testimonio ${i + 1}`}
@@ -128,7 +135,7 @@ export default function TestimonialSlider({ testimonials, autoPlayInterval = 500
 
           <button
             onClick={nextSlide}
-            className="group w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 active:scale-95 border border-gray-100"
+            className="group w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center shadow-lg transition-all duration-200 transform active:scale-95 border border-gray-100"
             aria-label="Siguiente testimonio"
           >
             <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-[#18759F] group-hover:text-[#17B4BC] transition-colors" />

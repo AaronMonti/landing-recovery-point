@@ -9,6 +9,7 @@ interface ImageWithFallbackProps {
   className?: string;
   priority?: boolean;
   sizes?: string;
+  loading?: 'lazy' | 'eager';
 }
 
 export default function ImageWithFallback({
@@ -19,6 +20,7 @@ export default function ImageWithFallback({
   className = "",
   priority = false,
   sizes,
+  loading,
   ...props
 }: ImageWithFallbackProps) {
   return (
@@ -29,6 +31,7 @@ export default function ImageWithFallback({
       className={className}
       priority={priority}
       sizes={sizes}
+      loading={loading}
       {...props}
     />
   );
