@@ -43,7 +43,7 @@ export default function Contact() {
 
       {/* Botón de WhatsApp flotante */}
       <div className="fixed bottom-6 right-6 z-50">
-        <button className="bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110">
+        <button className="bg-green-500 text-white p-4 rounded-full sm:shadow-lg sm:hover:shadow-xl transition-colors duration-300">
           <WhatsAppLogo className="w-6 h-6" />
         </button>
       </div>
@@ -69,7 +69,7 @@ export default function Contact() {
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto items-start">
           {/* Formulario de contacto */}
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-white/50 shadow-xl h-fit">
+          <div className="bg-white sm:bg-white/80 sm:backdrop-blur-sm rounded-2xl p-6 border border-[#e8f4f8] sm:shadow-xl h-fit">
             <h3 className="text-2xl font-bold text-[#273851] mb-4 flex items-center gap-2">
               <MessageSquare className="w-6 h-6 text-[#17B4BC]" />
               Envíanos un Mensaje
@@ -142,7 +142,7 @@ export default function Contact() {
               
               <button
                 type="submit"
-                className="w-full group px-6 py-3 bg-gradient-to-r from-[#18759F] to-[#17B4BC] text-white rounded-lg font-semibold text-sm hover:from-[#17B4BC] hover:to-[#18759F] transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
+                className="w-full group px-6 py-3 bg-gradient-to-r from-[#18759F] to-[#17B4BC] text-white rounded-lg font-semibold text-sm hover:from-[#17B4BC] hover:to-[#18759F] transition-colors sm:hover:scale-105 sm:shadow-lg sm:hover:shadow-xl flex items-center justify-center gap-2"
               >
                 <Send className="w-4 h-4" />
                 Enviar Mensaje
@@ -154,7 +154,7 @@ export default function Contact() {
           {/* Información de contacto */}
           <div className="space-y-6">
             {/* Información de contacto principal */}
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-white/50 shadow-xl">
+            <div className="bg-white sm:bg-white/80 sm:backdrop-blur-sm rounded-2xl p-6 border border-[#e8f4f8] sm:shadow-xl">
               <h3 className="text-2xl font-bold text-[#273851] mb-4 flex items-center gap-2">
                 <Phone className="w-6 h-6 text-[#17B4BC]" />
                 Información de Contacto
@@ -209,7 +209,7 @@ export default function Contact() {
             </div>
 
             {/* Mapa o ubicación */}
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-white/50 shadow-xl">
+            <div className="bg-white sm:bg-white/80 sm:backdrop-blur-sm rounded-2xl p-6 border border-[#e8f4f8] sm:shadow-xl">
               <h4 className="font-semibold text-[#273851] mb-4 flex items-center gap-2">
                 <MapPin className="w-5 h-5 text-[#17B4BC]" />
                 Nuestra Ubicación

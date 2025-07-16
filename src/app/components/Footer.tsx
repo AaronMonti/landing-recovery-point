@@ -97,18 +97,6 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-
-        {/* Bottom Section */}
-        <div className="border-t border-white/20 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-300">© 2024 RecoveryPoint. Todos los derechos reservados.</p>
-          <a 
-            href="#top"
-            className="bg-white/10 text-white px-6 py-3 rounded-lg hover:bg-white/20 transition-all duration-300 mt-4 md:mt-0 flex items-center space-x-2 backdrop-blur-sm hover:scale-105"
-          >
-            <span>Volver Arriba</span>
-            <ArrowUp className="w-4 h-4" />
-          </a>
-        </div>
       </div>
     </footer>
   );
