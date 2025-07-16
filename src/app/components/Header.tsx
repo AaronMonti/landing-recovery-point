@@ -1,8 +1,9 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
-import { Activity, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -34,8 +35,15 @@ export default function Header() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3 group">
-            <div className="w-10 h-10 bg-gradient-to-r from-[#18759F] to-[#17B4BC] rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
-              <Activity className="w-6 h-6 text-white" />
+            <div className="w-12 h-12 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 overflow-hidden">
+              <Image
+                src="/images/logo.jpg"
+                alt="Recovery Point Logo"
+                width={48}
+                height={48}
+                className="object-cover w-full h-full"
+                priority
+              />
             </div>
             <div className="flex flex-col">
               <span className="text-xl font-bold text-[#273851] group-hover:text-[#18759F] transition-colors">
