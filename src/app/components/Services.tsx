@@ -1,7 +1,4 @@
-'use client';
-
 import { CheckCircle, Users, Settings, Star, Shield } from 'lucide-react';
-import Image from 'next/image';
 import ImageWithFallback from './ImageWithFallback';
 import { IMAGES } from '../constants/images';
 
@@ -58,8 +55,8 @@ export default function Services() {
           <span className="inline-block text-[#18759F] bg-[#e8f4f8] px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium tracking-wide hover:bg-[#d1e9f2] transition-colors cursor-pointer mb-4 sm:mb-6">
             Nuestros Servicios
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-[#273851] leading-tight mb-4 sm:mb-6 px-4">
-            Servicios de Kinesiología 
+          <h2 className="text-wrap text-3xl sm:text-3xl lg:text-4xl xl:text-5xl font-extrabold text-[#273851] leading-tight mb-4 sm:mb-6 px-4">
+            Servicios de Kinesiología{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#18759F] via-[#17B4BC] to-[#273851] animate-gradient">
               Especializados
             </span>

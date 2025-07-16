@@ -1,12 +1,6 @@
-'use client';
-
 import { Activity, ArrowUp, Instagram, Mail, Phone, MapPin } from 'lucide-react';
 
 export default function Footer() {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   return (
     <footer className="bg-gradient-to-br from-[#273851] to-[#18759F] text-white py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -107,13 +101,13 @@ export default function Footer() {
         {/* Bottom Section */}
         <div className="border-t border-white/20 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-300">© 2024 RecoveryPoint. Todos los derechos reservados.</p>
-          <button 
-            onClick={scrollToTop}
+          <a 
+            href="#top"
             className="bg-white/10 text-white px-6 py-3 rounded-lg hover:bg-white/20 transition-all duration-300 mt-4 md:mt-0 flex items-center space-x-2 backdrop-blur-sm hover:scale-105"
           >
             <span>Volver Arriba</span>
             <ArrowUp className="w-4 h-4" />
-          </button>
+          </a>
         </div>
       </div>
     </footer>

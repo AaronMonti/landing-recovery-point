@@ -1,17 +1,7 @@
-'use client';
-
-import { useEffect } from 'react';
 import ImageWithFallback from './ImageWithFallback';
 import { IMAGES } from '../constants/images';
 
 export default function Gallery() {
-  useEffect(() => {
-    const handleScroll = () => {
-      // Función de scroll para futuras funcionalidades
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const images = IMAGES.GALLERY;
 
@@ -41,7 +31,7 @@ export default function Gallery() {
             Nuestro Centro
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-[#273851] leading-tight mb-4 sm:mb-6 px-4">
-            Conocé Nuestro 
+            Conocé Nuestro{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#18759F] via-[#17B4BC] to-[#273851] animate-gradient">
               Espacio de Trabajo
             </span>

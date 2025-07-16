@@ -1,5 +1,3 @@
-'use client';
-
 import { Target, UserCheck, Building2, Handshake } from 'lucide-react';
 import ImageWithFallback from './ImageWithFallback';
 import { IMAGES } from '../constants/images';
@@ -69,10 +67,10 @@ export default function About() {
               </div>
 
               {/* Badge de experiencia */}
-              <div className="absolute -bottom-6 -right-6 bg-white rounded-xl p-4 shadow-lg border border-gray-100">
+              <div className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 bg-white rounded-xl p-3 sm:p-4 shadow-lg border border-gray-100">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-[#17B4BC]">15+</div>
-                  <div className="text-sm text-[#273851]/70">Años de experiencia</div>
+                  <div className="text-xl sm:text-2xl font-bold text-[#17B4BC]">15+</div>
+                  <div className="text-xs sm:text-sm text-[#273851]/70">Años de experiencia</div>
                 </div>
               </div>
 

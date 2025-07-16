@@ -1,11 +1,6 @@
-'use client';
-
-import { useState, useEffect, useCallback } from 'react';
-import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import TestimonialSlider from './TestimonialSlider';
 
 export default function Testimonial() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
   const testimonials = [
     {
       id: 1,
@@ -54,27 +49,6 @@ export default function Testimonial() {
     }
   ];
 
-  const nextSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev + 1) % testimonials.length);
-  }, [testimonials.length]);
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
-
-  const goToSlide = (index: number) => {
-    setCurrentSlide(index);
-  };
-
-  // Auto-play cada 5 segundos
-  useEffect(() => {
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [nextSlide]);
-
   return (
     <section className="relative bg-gradient-to-br from-[#f7f7f7] via-[#e8f4f8] to-[#d1e9f2] py-12 sm:py-16 lg:py-20 overflow-hidden">
       {/* Elementos decorativos animados */}
@@ -101,7 +75,7 @@ export default function Testimonial() {
             Testimonios
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-[#273851] leading-tight mb-4 sm:mb-6 px-4">
-            Lo que Dicen Nuestros 
+            Lo que Dicen Nuestros{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#18759F] via-[#17B4BC] to-[#273851] animate-gradient">
               Pacientes
             </span>
@@ -113,80 +87,7 @@ export default function Testimonial() {
         </div>
 
         {/* Carousel de testimonios centrado */}
-        <div className="max-w-4xl mx-auto">
-          <div className="relative">
-            {/* Contenedor del carousel */}
-            <div className="relative overflow-hidden rounded-2xl bg-white/80 backdrop-blur-sm border border-white/50 shadow-xl">
-              <div 
-                className="flex transition-transform duration-500 ease-in-out"
-                style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-              >
-                {testimonials.map((testimonial) => (
-                  <div key={testimonial.id} className="w-full flex-shrink-0 p-6 sm:p-8">
-                    <div className="flex items-start gap-4 sm:gap-6">
-                      <div className={`w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r ${testimonial.gradient} rounded-full flex items-center justify-center shadow-lg flex-shrink-0`}>
-                        <span className="text-xl sm:text-2xl font-bold text-white">{testimonial.avatar}</span>
-                      </div>
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-3 sm:mb-4">
-                          {[...Array(5)].map((_, i) => (
-                            <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400" fill="currentColor" />
-                          ))}
-                        </div>
-                        <p className="text-sm sm:text-base text-[#273851]/80 leading-relaxed mb-4 sm:mb-6 italic">
-                          &ldquo;{testimonial.content}&rdquo;
-                        </p>
-                        <div className="flex items-center justify-between">
-                          <div>
-                            <h4 className="font-semibold text-[#273851] text-sm sm:text-base">{testimonial.name}</h4>
-                            <p className="text-[#273851]/60 text-xs sm:text-sm">{testimonial.role}</p>
-                          </div>
-                          <div className="text-right">
-                            <div className="text-xs sm:text-sm font-bold text-[#17B4BC]">{testimonial.recovery}</div>
-                            <div className="text-xs text-[#273851]/60">Recuperado</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Controles del carousel */}
-              <div className="absolute top-1/2 -translate-y-1/2 left-2 sm:left-4">
-                <button
-                  onClick={prevSlide}
-                  className="w-10 h-10 sm:w-12 sm:h-12 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-white transition-all duration-300 transform hover:scale-110 active:scale-95"
-                >
-                  <ChevronLeft className="w-5 h-5 text-[#18759F]" />
-                </button>
-              </div>
-              <div className="absolute top-1/2 -translate-y-1/2 right-2 sm:right-4">
-                <button
-                  onClick={nextSlide}
-                  className="w-10 h-10 sm:w-12 sm:h-12 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-white transition-all duration-300 transform hover:scale-110 active:scale-95"
-                >
-                  <ChevronRight className="w-5 h-5 text-[#18759F]" />
-                </button>
-              </div>
-            </div>
-
-            {/* Indicadores */}
-            <div className="flex justify-center mt-6 sm:mt-8 gap-2">
-              {testimonials.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => goToSlide(i)}
-                  className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
-                    i === currentSlide 
-                      ? 'bg-[#17B4BC] scale-125' 
-                      : 'bg-[#18759F]/30 hover:bg-[#18759F]/50'
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
+        <TestimonialSlider testimonials={testimonials} />
       </div>
     </section>
   );

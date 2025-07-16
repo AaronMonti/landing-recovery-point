@@ -17,6 +17,18 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Header transitions */
+header {
+  will-change: transform, background-color, backdrop-filter;
+  transform: translateZ(0);
+}
+
+/* Mobile menu transitions */
+.mobile-menu {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
 body {
   font-family: var(--font-inter);
   color: var(--dark-blue);

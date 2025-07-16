@@ -1,6 +1,3 @@
-'use client';
-
-import { useState } from 'react';
 import Image from 'next/image';
 import { IMAGES } from '../constants/images';
 
@@ -24,25 +21,14 @@ export default function ImageWithFallback({
   sizes,
   ...props
 }: ImageWithFallbackProps) {
-  const [imgSrc, setImgSrc] = useState(src);
-  const [hasError, setHasError] = useState(false);
-
-  const handleError = () => {
-    if (!hasError) {
-      setImgSrc(fallbackSrc);
-      setHasError(true);
-    }
-  };
-
   return (
     <Image
-      src={imgSrc}
+      src={src}
       alt={alt}
       fill={fill}
       className={className}
       priority={priority}
       sizes={sizes}
-      onError={handleError}
       {...props}
     />
   );

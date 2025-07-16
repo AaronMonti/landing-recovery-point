@@ -1,5 +1,3 @@
-'use client';
-
 import { Bone, Zap, Activity, Brain, ClipboardList, Search, Dumbbell, TrendingUp, Clock, FileText, Target, Calendar, Mail } from 'lucide-react';
 
 export default function IssuesAndProcess() {
@@ -83,7 +81,7 @@ export default function IssuesAndProcess() {
             Especialidades & Proceso
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-[#273851] leading-tight mb-4 sm:mb-6 px-4">
-            Tratamos tu Condición con un 
+            Tratamos tu Condición con un{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#18759F] via-[#17B4BC] to-[#273851] animate-gradient">
               Proceso Personalizado
             </span>
